@@ -1,6 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin');
 const path = require('path');
 
 module.exports = {
@@ -53,7 +52,7 @@ module.exports = {
 			template: path.resolve(__dirname, 'src/templates/index.html'),
 			favicon: "./src/public/images/favicon.ico",
       filename: 'index.html',
-      title: 'Progressive Web Application',
+      title: 'Putra Restaurant',
     }),
     new CopyWebpackPlugin({
       patterns: [
@@ -62,9 +61,6 @@ module.exports = {
           to: path.resolve(__dirname, 'dist/'),
         },
       ],
-    }),
-    new ServiceWorkerWebpackPlugin({
-      entry: path.resolve(__dirname, 'src/scripts/sw.js'),
     }),
   ],
 };
