@@ -1,0 +1,27 @@
+ptr-footer {
+    height: 150px;
+    display: flex;
+	flex-direction: column;
+	align-items: center;
+    margin-top: 50px;
+    position: relative;
+}
+
+ptr-footer img {
+	width: 60px;
+    height: 60px;
+    margin: 20px 0px;
+}
+
+ptr-footer p {
+    font-weight: bold;
+    color: #1ABC9C;
+}
+
+ptr-footer::before {
+    content: '';
+    border-top: 2px solid #1ABC9C;
+    width: 80%;
+    position: absolute;
+    top: 0;
+}

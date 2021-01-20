@@ -1,0 +1,233 @@
+.modal {
+    background-color: rgba(0, 0, 0, 0.3);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    animation: fadeInOpacity 0.25s ease-in 0s 1;
+    overflow: auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.modal.show {
+    display: block;
+}
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+.modal .modal_card {
+    width: 100%;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 30px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.modal .modal_card .header {
+    height: 40px;
+    border-bottom: 1px solid #9f9f9f;
+    display: flex;
+    justify-content: space-between;
+}
+
+.modal .modal_card .header .title {
+    color: #1ABC9C;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.modal .modal_card .header .close {
+    color: #1ABC9C;
+    cursor: pointer;
+}
+
+.modal .modal_card .body {
+    min-height: 300px;
+    margin: 10px 0;
+}
+
+.modal .modal_card .footer {
+    height: 40px;
+    border-top: 1px solid #9f9f9f;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.kategori {
+    width: 100%;
+    white-space: nowrap;
+    overflow: auto;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.kategori .item_kategori {
+    border: 1px solid #1ABC9C;
+    border-radius: 20px;
+    color: #1ABC9C;
+    font-size: 14px;
+    padding: 5px;
+    box-sizing: border-box;
+    margin-right: 5px;
+}
+
+.gambar {
+    position: relative;
+}
+
+.gambar img {
+    width: 100%;
+    height: 170px;
+    border-radius: 5px;
+}
+
+.gambar .suka {
+    border: none;
+    min-width: 44px;
+    min-height: 44px;
+    border-radius: 50%;
+    color: #fff;
+    background-color: rgba(26, 188, 156, 0.7);
+    position: absolute;
+    left: 10px;
+    bottom: -20px;
+}
+
+.gambar .nilai {
+    min-width: 44px;
+    min-height: 44px;
+    border-radius: 50%;
+    color: #fff;
+    background-color: rgba(26, 188, 156, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 10px;
+    bottom: -20px;
+}
+
+.gambar .nilai p {
+    font-size: 14px;
+}
+
+.alamat {
+    width: 100%;
+    margin: 30px 0 20px 0;
+}
+
+.alamat p {
+    text-align: center;
+    font-weight: bold;
+}
+
+.menu_tab {
+    display: flex;
+    height: 40px;
+    border-bottom: 1px solid #b1b1b1;
+    line-height: 40px;
+}
+
+.sub_tab {
+    flex: 1;
+    text-align: center;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+}
+
+.sub_tab.active {
+    color: #1ABC9C;
+    border-bottom: 4px solid #1ABC9C;
+}
+
+.menu_container {
+    /* border: 1px solid #1ABC9C; */
+    height: 200px;
+    padding: 20px;
+    overflow-y: auto;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.menu_container.active {
+    opacity: 1;
+}
+
+.menu_container p {
+    margin-bottom: 20px;
+}
+
+.review_title {
+    width: 100%;
+    margin: 20px 0 10px 0;
+}
+
+.review_title p {
+    text-align: center;
+    font-weight: bold;
+}
+
+.review {
+    width: 100%;
+    white-space: nowrap;
+    overflow: auto;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.review .item_review {
+    border: 1px solid #1ABC9C;
+    border-radius: 10px;
+    min-width: 200px;
+    height: 100px;
+    margin-right: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.review .item_review .name_review {
+    font-size: 14px;
+    font-weight: bold;
+    color: #1ABC9C;
+    margin-bottom: 5px;
+}
+
+.review .item_review .date_review {
+    font-size: 10px;
+    margin-bottom: 5px;
+}
+
+.review .item_review .isi_review {
+    font-size: 12px;
+    font-weight: bold;
+    white-space: normal;
+    margin: 10px 0;
+}
+
+.hide {
+    display: none;
+}
+
+/* .sub_tab:hover {
+    color: #fff;
+    background-color: #1ABC9C;
+} */

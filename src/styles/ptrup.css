@@ -1,0 +1,31 @@
+ptr-up {
+	min-width: 44px;
+    min-height: 44px;
+	border-radius: 50%;
+	background-color: #1ABC9C;
+	position: fixed;
+	bottom: 25px;
+	right: 25px;
+	display: none;
+	justify-content: center;
+	align-items: center;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+ptr-up.show {
+	display: flex;
+}
+
+ptr-up .scrollup {
+	min-width: 44px;
+	min-height: 44px;
+	border-radius: 50%;
+	background-color: #1ABC9C;
+	border: none;
+	cursor: pointer;
+}
+
+ptr-up img {
+	width: 30px;
+	height: 30px;
+}
