@@ -1,0 +1,63 @@
+@import "ptrskiplink.css";
+@import "ptrnav.css";
+@import "ptrdrawer.css";
+@import "ptrhero.css";
+@import "ptrcontent.css";
+@import "ptritem.css";
+@import "ptrfooter.css";
+@import "ptrup.css";
+@import "ptrmodal.css";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: Montserrat;
+    src: url(../public/fonts/Montserrat-Regular.ttf);
+}
+
+body {
+    background-color: #fff;
+    font-family: Montserrat, sans-serif;
+}
+
+main {
+    padding: 32px;
+    flex: 1;
+}
+
+.content {
+    margin: 0 auto;
+    min-height: 100%;
+}
+
+.content .content__heading {
+    font-weight: normal;
+}
+
+.movies {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin: 32px 0;
+}
+
+@media screen and (min-width: 768px) {
+    ptr-nav {
+        padding: 0 50px;
+    }
+
+    .menu {
+        display: flex;
+    }
+
+    .hamburger {
+        display: none;
+    }
+
+    ptr-item .item_resto {
+        margin: 0 40px 40px 0;
+    }
+}

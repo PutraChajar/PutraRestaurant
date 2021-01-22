@@ -1,0 +1,45 @@
+ptr-drawer {
+    background-color: #1ABC9C;
+    width: 200px;
+    margin-top: 70px;
+    overflow: auto;
+    z-index: 2;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: -200px;
+	transition: all 0.5s linear 0s;
+}
+
+ptr-drawer.show {
+    right: 0;
+}
+
+ptr-drawer ul {
+    list-style-type: none;
+    margin: 40px;
+}
+
+ptr-drawer ul li {
+    margin: 30px 0px;
+}
+
+ptr-drawer ul li a {
+    padding: 13px;
+    box-sizing: border-box;
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+ptr-drawer ul li a:hover {
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+ptr-drawer ul li a:active {
+    text-shadow: none;
+}
+
+ptr-drawer ul li a.aktif {
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+}

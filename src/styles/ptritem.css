@@ -1,0 +1,74 @@
+ptr-item .item_resto {
+    width: 250px;
+    min-height: 300px;
+    margin: 0px 0px 40px 0px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+ptr-item .image_resto {
+    position: relative;
+}
+
+ptr-item .image_resto img {
+    width: 100%;
+    height: 150px;
+    border-radius: 10px 10px 0px 0px;
+}
+
+ptr-item .image_resto .kota_resto {
+    padding: 10px;
+    box-sizing: border-box;
+    color: #fff;
+    border-radius: 0px 5px 5px 0px;
+    background-color: rgba(26, 188, 156, 0.7);
+    position: absolute;
+    top: 10px;
+    left: 0;
+}
+
+ptr-item .desc_resto {
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+ptr-item .desc_resto .rate_resto {
+    margin-bottom: 10px;
+}
+
+ptr-item .desc_resto .rate_resto p {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+ptr-item .desc_resto .name_resto {
+    margin-bottom: 10px;
+}
+
+ptr-item .desc_resto .name_resto h2 {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+ptr-item .desc_resto .capt_resto {
+    margin-bottom: 20px;
+}
+
+ptr-item .desc_resto .capt_resto p {
+    font-size: 12px;
+}
+
+ptr-item .desc_resto .cta_resto {
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+ptr-item .desc_resto .cta_resto button {
+    min-height: 44px;
+    width: 60px;
+    font-size: 14px;
+    color: #fff;
+    background-color: #1ABC9C;
+    border: none;
+    border-radius: 5px;
+}
