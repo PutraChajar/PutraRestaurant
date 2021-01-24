@@ -1,24 +1,22 @@
 const DrawerInitiator = {
-  init({ button, drawer, content }) {
+  init({ button, drawer, ptrnav, isscroll }) {
     button.addEventListener('click', (event) => {
-      alert('tdrawer');
-      // this._toggleDrawer(event, drawer);
+      event.stopPropagation();
+      button.classList.toggle('on');
+      drawer.classList.toggle('show');
+      if (button.classList.contains('on')) {
+        ptrnav.classList.add('on');
+      } else if (!isscroll) {
+        ptrnav.classList.remove('on');
+      }
     });
 
-    content.addEventListener('click', (event) => {
-      // this._closeDrawer(event, drawer);
-      alert('content');
+    button.addEventListener('keypress', (event) => {
+      event.stopPropagation();
+      if (event.keyCode === 13) {
+        button.click();
+      }
     });
-  },
-
-  _toggleDrawer(event, drawer) {
-    event.stopPropagation();
-    drawer.classList.toggle('open');
-  },
-
-  _closeDrawer(event, drawer) {
-    event.stopPropagation();
-    drawer.classList.remove('open');
   },
 };
 
