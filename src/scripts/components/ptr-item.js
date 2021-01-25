@@ -23,7 +23,7 @@ class PtrItem extends HTMLElement {
         const caption = this.displayCaption(this._data.description, 15);
 
         this.innerHTML = `
-            <div class="item_resto" id="${this._data.id}" idresto="${this._data.id}" tabindex="0">
+            <div class="item_resto" idresto="${this._data.id}" tabindex="0">
                 <div class="image_resto">
                     <img src="${CONFIG.BASE_IMAGE_URL_SMALL + this._data.pictureId}" alt="${this._data.name}" tabindex="0" crossorigin="anonymous">
                     <span class="kota_resto">
@@ -42,6 +42,8 @@ class PtrItem extends HTMLElement {
                     </div>
                     <div class="cta_resto">
                         <button class="detail_resto" idresto="${this._data.id}">Lihat</button>
+                    </div>
+                    <div id="${this._data.id}">
                     </div>
                 </div>
             </div>

@@ -48,6 +48,11 @@ class App {
     this._content.innerHTML = await page.render();
     await page.afterRender();
     await page.handlerDetailClick();
+
+    if (this._drawer.classList.contains('show')) {
+      this._button.classList.remove('on');
+      this._drawer.classList.remove('show');
+    }
   }
 }
 

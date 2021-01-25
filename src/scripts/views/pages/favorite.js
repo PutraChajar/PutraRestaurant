@@ -1,14 +1,15 @@
 import DataSource from '../../data/data-source.js';
+import FavoriteIdb from '../../data/favorite-idb.js';
 import Detail from './detail.js';
 import "../../components/ptr-item.js";
 import Message from '../../utils/message-initiator.js';
 import Loader from '../../utils/loader-initiator.js';
 
-const Restaurant = {
+const Favorite = {
   async render() {
     return `
       <div class="content" id="maincontent">
-        <h2 class="content__heading">Jelajahi Restoran</h2>
+        <h2 class="content__heading">Restoran Favorit Kamu</h2>
         <div id="restaurants" class="restaurants">
 
         </div>
@@ -24,13 +25,14 @@ const Restaurant = {
     });
 
     try {
-      const dataRestaurants = await DataSource.loadRestaurants();
+      const dataRestaurants = await FavoriteIdb.getAllDatas();
       Loader.removeLoading();
       dataRestaurants.forEach((restaurant) => {
         const ptrItemElement = document.createElement('ptr-item');
         ptrItemElement.data = restaurant;
         restaurantsContainer.appendChild(ptrItemElement);
       });
+      scroll({top: restaurantsContainer.offsetTop - 170, behavior: "smooth"});
     } catch (message) {
       console.log(message);
       Message.show({
@@ -57,4 +59,4 @@ const Restaurant = {
   },
 };
 
-export default Restaurant;
+export default Favorite;

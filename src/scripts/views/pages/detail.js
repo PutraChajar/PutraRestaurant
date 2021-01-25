@@ -1,9 +1,9 @@
 import DataSource from '../../data/data-source.js';
 import FavoriteIdb from '../../data/favorite-idb.js';
 import Message from '../../utils/message-initiator.js';
+import Loader from '../../utils/loader-initiator.js';
+import Reviews from '../../utils/review-initiator.js';
 import "../../components/ptr-modal.js";
-import '../../components/ptr-loading.js';
-import '../../components/ptr-loader.js';
 
 let currentModal;
 
@@ -17,15 +17,32 @@ const Detail = {
   },
 
   async afterRender(idresto) {
-    const dataRestaurant = await DataSource.loadRestaurant(idresto);
-    const ptrModalElement = document.createElement('ptr-modal');
-    ptrModalElement.restaurant = dataRestaurant;
-    const detailContainer = document.querySelector('#detail');
-    detailContainer.appendChild(ptrModalElement);
+    const modal = document.querySelector('#detail');
+
+    Loader.initLoader({
+      container: modal,
+      keterangan: 'Sedang mengirim data..'
+    });
+
+    try {
+      const dataRestaurant = await DataSource.loadRestaurant(idresto);
+      const ptrModalElement = document.createElement('ptr-modal');
+      ptrModalElement.restaurant = dataRestaurant;
+      modal.appendChild(ptrModalElement);
+      Loader.removeLoader();
+    } catch (message) {
+      console.log(message);
+      Message.show({
+        jenis: 'error', 
+        judul: 'Koneksi Gagal', 
+        isi: 'Pastikan device anda mendapatkan koneksi internet'
+      });
+      Loader.removeLoader();
+    }
   },
 
-  async handlerModalClick() {
-    const modal = document.querySelector('.modal');
+  async handlerModalClick(idresto) {
+    const modal = document.querySelector('#detail');
     const title = document.querySelector('.title');
     const close_modal = document.querySelector('#close_modal');
     const favorite = document.querySelector('#favorite');
@@ -58,7 +75,7 @@ const Detail = {
         pictureId: favorite.getAttribute('pictureId'),
       }
 
-      if (await isFavoriteExist(data.id)) {
+      if (await FavoriteIdb.getData(data.id)) {
         await FavoriteIdb.deleteData(data.id);
         icofav.className = '';
         icofav.classList.add('fa', 'fa-heart-o');
@@ -106,19 +123,22 @@ const Detail = {
         review: review.value
       }
 
-      const ptrLoaderElement = document.createElement('ptr-loader');
-      ptrLoaderElement.keterangan = 'Sedang mengirim data..';
-      const restaurantsContainer = document.querySelector('#restaurants');
-      restaurantsContainer.appendChild(ptrLoaderElement);
+      Loader.initLoader({
+        container: modal,
+        keterangan: 'Sedang mengirim data..'
+      });
 
       try {
         const dataReview = await DataSource.addNewReview(data_review);
-        daftar_review.innerHTML = refreshReview(dataReview);
+        Reviews.init({
+          container: daftar_review,
+          data: dataReview
+        });
         nama.value = '';
         review.value = '';
         daftar_review.scroll({left: dataReview.customerReviews.length * 1000, behavior: "smooth"});
         div_review.classList.add('hide');
-        ptrLoaderElement.remove();
+        Loader.removeLoader();
       } catch (error) {
         console.log(error);
         Message.show({
@@ -126,7 +146,7 @@ const Detail = {
           judul: 'Koneksi Gagal', 
           isi: 'Pastikan device anda mendapatkan koneksi internet'
         });
-        ptrLoaderElement.remove();
+        Loader.removeLoader();
       }
     });
   },
