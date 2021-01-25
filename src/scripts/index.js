@@ -9,6 +9,7 @@ import './components/ptr-content';
 import './components/ptr-footer.js';
 import './components/ptr-up.js';
 import App from './views/app';
+import swRegister from './utils/sw-register.js';
 import "font-awesome/css/font-awesome.css";
 
 const app = new App({
@@ -21,6 +22,7 @@ const app = new App({
   explore: document.querySelector('#explore'),
   ptrnav: document.querySelector('ptr-nav'),
   ptrup: document.querySelector('ptr-up'),
+  amenu: document.querySelectorAll('.amenu'),
   isscroll: false,
 });
 
@@ -30,4 +32,5 @@ window.addEventListener('hashchange', () => {
  
 window.addEventListener('load', () => {
   app.renderPage();
+  swRegister();
 });

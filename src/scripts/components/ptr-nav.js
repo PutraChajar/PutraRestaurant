@@ -8,10 +8,13 @@ class PtrNav extends HTMLElement {
     render() {
         this.innerHTML = `
             <div class="logo">
-                <img src="${logo}" alt="logo putra resto" tabindex="0">
+                <a href="">
+                    <img src="${logo}" alt="logo putra resto" tabindex="0">
+                </a>
             </div>
             <div class="menu">
                 <a href="" class="amenu">Home</a>
+                <a href="#/restaurant" class="amenu">Restaurant</a>
                 <a href="#/favorite" class="amenu">Favorite</a>
                 <a href="https://www.instagram.com/putrachajar/" target="_blank" class="amenu" rel="noopener">About Us</a>
             </div>

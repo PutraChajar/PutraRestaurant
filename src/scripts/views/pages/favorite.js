@@ -1,9 +1,9 @@
-import DataSource from '../../data/data-source.js';
 import FavoriteIdb from '../../data/favorite-idb.js';
 import Detail from './detail.js';
-import "../../components/ptr-item.js";
 import Message from '../../utils/message-initiator.js';
 import Loader from '../../utils/loader-initiator.js';
+import "../../components/ptr-item.js";
+import "../../components/ptr-empty.js";
 
 const Favorite = {
   async render() {
@@ -27,12 +27,19 @@ const Favorite = {
     try {
       const dataRestaurants = await FavoriteIdb.getAllDatas();
       Loader.removeLoading();
-      dataRestaurants.forEach((restaurant) => {
-        const ptrItemElement = document.createElement('ptr-item');
-        ptrItemElement.data = restaurant;
-        restaurantsContainer.appendChild(ptrItemElement);
-      });
-      scroll({top: restaurantsContainer.offsetTop - 170, behavior: "smooth"});
+      if (dataRestaurants.length > 0) {
+        dataRestaurants.forEach((restaurant) => {
+          const ptrItemElement = document.createElement('ptr-item');
+          ptrItemElement.data = restaurant;
+          restaurantsContainer.appendChild(ptrItemElement);
+          restaurantsContainer.style.display = 'grid';
+        });
+      } else {
+        const ptrEmptyElement = document.createElement("ptr-empty");
+        ptrEmptyElement.message = 'Restoran Favorit Kamu Tidak Ada';
+        restaurantsContainer.appendChild(ptrEmptyElement);
+        restaurantsContainer.style.display = 'flex';
+      }
     } catch (message) {
       console.log(message);
       Message.show({
@@ -41,6 +48,10 @@ const Favorite = {
         isi: 'Pastikan device anda mendapatkan koneksi internet'
       });
       Loader.removeLoading();
+      const ptrEmptyElement = document.createElement("ptr-empty");
+      ptrEmptyElement.message = 'Restoran Favorit Kamu Tidak Ada';
+      restaurantsContainer.appendChild(ptrEmptyElement);
+      restaurantsContainer.style.display = 'flex';
     }
   },
 

@@ -11,10 +11,10 @@
 }
 
 .restaurants {
-  display: grid;
+  display: flex;
   grid-template-columns: 1fr;
   gap: 16px;
   margin: 32px 0;
-  justify-items: center;
+  justify-content: center;
   align-items: center;
 }

@@ -69,4 +69,5 @@ ptr-item .desc_resto .cta_resto button {
     background-color: #1ABC9C;
     border: none;
     border-radius: 5px;
+    cursor: pointer;
 }

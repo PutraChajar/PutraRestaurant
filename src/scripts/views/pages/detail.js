@@ -5,8 +5,6 @@ import Loader from '../../utils/loader-initiator.js';
 import Reviews from '../../utils/review-initiator.js';
 import "../../components/ptr-modal.js";
 
-let currentModal;
-
 const Detail = {
   async render() {
     return `
@@ -38,10 +36,12 @@ const Detail = {
         isi: 'Pastikan device anda mendapatkan koneksi internet'
       });
       Loader.removeLoader();
+      modal.remove();
     }
   },
 
   async handlerModalClick(idresto) {
+    const item_resto = document.querySelectorAll('.item_resto');
     const modal = document.querySelector('#detail');
     const title = document.querySelector('.title');
     const close_modal = document.querySelector('#close_modal');
@@ -64,6 +64,12 @@ const Detail = {
     close_modal.addEventListener('click', () => {
       modal.remove();
     });
+
+    for (var i = 0; i < item_resto.length; i++) {
+      item_resto[i].addEventListener('focus', function() {
+        modal.remove();
+      });
+    }
 
     favorite.addEventListener('click', async () => {
       let data = {

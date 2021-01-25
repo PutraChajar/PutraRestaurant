@@ -1,0 +1,23 @@
+ptr-list {
+    display: flex;
+}
+
+ptr-empty .empty {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+ptr-empty .empty img {
+    width: 300px;
+    height: 300px;
+}
+
+ptr-empty .empty p {
+    font-size: 16px;
+    font-weight: bold;
+    color: #1ABC9C;
+    text-transform: capitalize;
+}

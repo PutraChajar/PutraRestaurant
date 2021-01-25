@@ -7,6 +7,7 @@ class PtrDrawer extends HTMLElement {
         this.innerHTML = `
             <ul>
                 <li><a href="" class="amenu">Home</a></li>
+                <li><a href="#/restaurant" class="amenu">Restaurant</a></li>
                 <li><a href="#/favorite" class="amenu">Favorite</a></li>
                 <li><a href="https://www.instagram.com/putrachajar/" target="_blank" class="amenu" rel="noopener">About Us</a></li>
             </ul>

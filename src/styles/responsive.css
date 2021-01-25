@@ -30,6 +30,15 @@
     color: #fff;
     background-color: #1ABC9C;
   }
+
+  ptr-empty .empty img {
+    width: 500px;
+    height: 500px;
+  }
+
+  ptr-empty .empty p {
+    font-size: 20px;
+  }
 }
   
 @media screen and (min-width: 850px) {

@@ -9,6 +9,7 @@
 @import "ptrmodal.css";
 @import "ptrloading.css";
 @import "ptrloader.css";
+@import "ptrempty.css";
 
 * {
   margin: 0;
